@@ -1,8 +1,6 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"net/http"
 	"todo_list/bootstrap"
 	"todo_list/global"
 )
@@ -26,14 +24,15 @@ func main() {
 		}
 	}()
 
-	r := gin.Default()
-	//	测试路由
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"data":    "pong",
-			"code":    0,
-			"message": "请求成功",
-		})
-	})
-	r.Run(":" + global.App.Config.App.Port)
+	bootstrap.RunServer()
+	//r := gin.Default()
+	////	测试路由
+	//r.GET("/ping", func(c *gin.Context) {
+	//	c.JSON(http.StatusOK, gin.H{
+	//		"data":    "pong",
+	//		"code":    0,
+	//		"message": "请求成功",
+	//	})
+	//})
+	//r.Run(":" + global.App.Config.App.Port)
 }

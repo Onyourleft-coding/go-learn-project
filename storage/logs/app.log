@@ -429,3 +429,5 @@
 2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
 [0.000ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
 [6067-1111-07 117:757:00]	local.info	todo_list/main.go:29	断开服务器连接
+[6067-1111-07 117:739:00]	local.info	todo_list/main.go:17	log int success!
+[6067-1111-07 117:735:00]	local.info	todo_list/main.go:15	log int success!
