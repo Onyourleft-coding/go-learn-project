@@ -1,0 +1,431 @@
+[6062-1111-02 117:226:00]	local.info	todo_list/main.go:17	log int success!
+[6062-1111-02 117:226:00]	local.info	bootstrap/db.go:41	dsn	{"dsn": ":@tcp(:0)/?charset=&parseTime=True&loc=Local"}
+[6062-1111-02 117:226:00]	local.info	bootstrap/db.go:50	mysqlConfig	{"err": ":@tcp(:0)/?charset=&parseTime=True&loc=Local"}
+[6062-1111-02 117:226:00]	local.error	bootstrap/db.go:57	mysql connect failed, err:	{"err": "dial tcp :0: connectex: The requested address is not valid in its context."}
+[6062-1111-02 117:213:00]	local.info	todo_list/main.go:17	log int success!
+[6062-1111-02 117:213:00]	local.info	bootstrap/db.go:41	dsn	{"dsn": ":@tcp(:0)/?charset=&parseTime=True&loc=Local"}
+[6062-1111-02 117:213:00]	local.info	bootstrap/db.go:50	mysqlConfig	{"err": ":@tcp(:0)/?charset=&parseTime=True&loc=Local"}
+[6062-1111-02 117:213:00]	local.error	bootstrap/db.go:57	mysql connect failed, err:	{"err": "dial tcp :0: connectex: The requested address is not valid in its context."}
+[6062-1111-02 117:222:00]	local.info	todo_list/main.go:17	log int success!
+[6062-1111-02 117:222:00]	local.info	bootstrap/db.go:35	初始化	{"dbConfig": ""}
+[6062-1111-02 117:222:00]	local.info	todo_list/main.go:17	log int success!
+[6062-1111-02 117:222:00]	local.info	bootstrap/db.go:35	初始化	{"dbConfig": ""}
+[6063-1111-03 117:335:00]	local.info	todo_list/main.go:18	log int success!
+[6063-1111-03 117:335:00]	local.info	todo_list/main.go:21	common	{"common": {"driver":"","host":"","port":0,"database":"","username":"","password":"","charset":"","max_idle_conns":0,"max_open_conns":0,"log_mode":"","enable_file_log_writer":false,"log_filename":""}}
+[6063-1111-03 117:335:00]	local.info	bootstrap/db.go:35	初始化	{"dbConfig": ""}
+[6063-1111-03 117:351:00]	local.info	todo_list/main.go:18	log int success!
+[6063-1111-03 117:351:00]	local.info	todo_list/main.go:22	appConfig	{"appConfig": {"env":"local","port":"9988","app_name":"todo_list","app_url":"http://192.168.1.58"}}
+[6063-1111-03 117:351:00]	local.info	todo_list/main.go:23	dbConfig	{"dbConfig": {"driver":"","host":"","port":0,"database":"","username":"","password":"","charset":"","max_idle_conns":0,"max_open_conns":0,"log_mode":"","enable_file_log_writer":false,"log_filename":""}}
+[6063-1111-03 117:351:00]	local.info	todo_list/main.go:24	logConfig	{"logConfig": {"level":"info","root_dir":"./storage/logs","filename":"app.log","format":"","show_line":true,"max_backups":3,"max_size":500,"max_age":28,"compress":true}}
+[6063-1111-03 117:351:00]	local.info	bootstrap/db.go:35	初始化	{"dbConfig": ""}
+[6063-1111-03 117:316:00]	local.info	todo_list/main.go:18	log int success!
+[6063-1111-03 117:316:00]	local.info	todo_list/main.go:22	appConfig	{"appConfig": {"env":"local","port":"9988","app_name":"todo_list","app_url":"http://192.168.1.58"}}
+[6063-1111-03 117:316:00]	local.info	todo_list/main.go:23	dbConfig	{"dbConfig": {"driver":"mysql","host":"127.0.0.1","port":3306,"database":"todolist","username":"root","password":"root","charset":"utf8mb4","max_idle_conns":10,"max_open_conns":100,"log_mode":"info","enable_file_log_writer":true,"log_filename":"sql.log"}}
+[6063-1111-03 117:316:00]	local.info	todo_list/main.go:24	logConfig	{"logConfig": {"level":"info","root_dir":"./storage/logs","filename":"app.log","format":"","show_line":true,"max_backups":3,"max_size":500,"max_age":28,"compress":true}}
+[6063-1111-03 117:316:00]	local.info	bootstrap/db.go:40	dsn	{"dsn": "root:root@tcp(127.0.0.1:3306)/todolist?charset=utf8mb4&parseTime=True&loc=Local"}
+[6063-1111-03 117:316:00]	local.info	bootstrap/db.go:49	mysqlConfig	{"err": "root:root@tcp(127.0.0.1:3306)/todolist?charset=utf8mb4&parseTime=True&loc=Local"}
+
+2023/11/06 15:09:16 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 15:09:16 E:/private_basic/todo_list/bootstrap/db.go:115
+[11.870ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 15:09:16 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.527ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'todolist' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/06 15:09:16 E:/private_basic/todo_list/bootstrap/db.go:115
+[85.442ms] [rows:0] CREATE TABLE `users` (`id` bigint unsigned AUTO_INCREMENT,`name` varchar(191) NOT NULL COMMENT '用户名称',`mobile` varchar(191) NOT NULL COMMENT '用户手机号',`password` varchar(191) NOT NULL DEFAULT '' COMMENT '用户密码',`create_at` datetime NULL,`update_at` datetime NULL,`deleted_at` datetime NULL,PRIMARY KEY (`id`),INDEX `idx_users_mobile` (`mobile`),INDEX `idx_users_deleted_at` (`deleted_at`))
+[6063-1111-03 117:325:00]	local.info	todo_list/main.go:18	log int success!
+[6063-1111-03 117:325:00]	local.info	todo_list/main.go:22	appConfig	{"appConfig": {"env":"local","port":"9988","app_name":"todo_list","app_url":"http://192.168.1.58"}}
+[6063-1111-03 117:325:00]	local.info	todo_list/main.go:23	dbConfig	{"dbConfig": {"driver":"mysql","host":"127.0.0.1","port":3306,"database":"todolist","username":"root","password":"root","charset":"utf8mb4","max_idle_conns":10,"max_open_conns":100,"log_mode":"info","enable_file_log_writer":true,"log_filename":"sql.log"}}
+[6063-1111-03 117:325:00]	local.info	todo_list/main.go:24	logConfig	{"logConfig": {"level":"info","root_dir":"./storage/logs","filename":"app.log","format":"","show_line":true,"max_backups":3,"max_size":500,"max_age":28,"compress":true}}
+[6063-1111-03 117:325:00]	local.info	bootstrap/db.go:40	dsn	{"dsn": "root:root@tcp(127.0.0.1:3306)/todolist?charset=utf8mb4&parseTime=True&loc=Local"}
+[6063-1111-03 117:325:00]	local.info	bootstrap/db.go:49	mysqlConfig	{"err": "root:root@tcp(127.0.0.1:3306)/todolist?charset=utf8mb4&parseTime=True&loc=Local"}
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[1.425ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.504ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'todolist' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.687ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[1.503ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[6.493ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'todolist' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.856ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_mobile'
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.535ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 15:09:25 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.649ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+[6063-1111-03 117:312:00]	local.info	todo_list/main.go:18	log int success!
+[6063-1111-03 117:312:00]	local.info	todo_list/main.go:22	appConfig	{"appConfig": {"env":"local","port":"9988","app_name":"todo_list","app_url":"http://192.168.1.58"}}
+[6063-1111-03 117:312:00]	local.info	todo_list/main.go:23	dbConfig	{"dbConfig": {"driver":"mysql","host":"127.0.0.1","port":3306,"database":"todolist","username":"root","password":"root","charset":"utf8mb4","max_idle_conns":10,"max_open_conns":100,"log_mode":"info","enable_file_log_writer":true,"log_filename":"sql.log"}}
+[6063-1111-03 117:312:00]	local.info	todo_list/main.go:24	logConfig	{"logConfig": {"level":"info","root_dir":"./storage/logs","filename":"app.log","format":"","show_line":true,"max_backups":3,"max_size":500,"max_age":28,"compress":true}}
+[6063-1111-03 117:312:00]	local.info	bootstrap/db.go:40	dsn	{"dsn": "root:root@tcp(127.0.0.1:3306)/todolist?charset=utf8mb4&parseTime=True&loc=Local"}
+[6063-1111-03 117:312:00]	local.info	bootstrap/db.go:49	mysqlConfig	{"err": "root:root@tcp(127.0.0.1:3306)/todolist?charset=utf8mb4&parseTime=True&loc=Local"}
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[1.316ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.503ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'todolist' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[1.004ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.968ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[1.510ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[1.812ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'todolist' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[1.243ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.503ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_mobile'
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.991ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 15:17:12 E:/private_basic/todo_list/bootstrap/db.go:115
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+[6064-1111-04 117:428:00]	local.info	todo_list/main.go:16	log int success!
+[6064-1111-04 117:428:00]	local.info	todo_list/main.go:20	appConfig	{"appConfig": {"env":"local","port":"9988","app_name":"todo_list","app_url":"http://192.168.1.58"}}
+[6064-1111-04 117:428:00]	local.info	todo_list/main.go:21	dbConfig	{"dbConfig": {"driver":"mysql","host":"127.0.0.1","port":3306,"database":"todolist","username":"root","password":"root","charset":"utf8mb4","max_idle_conns":10,"max_open_conns":100,"log_mode":"info","enable_file_log_writer":true,"log_filename":"sql.log"}}
+[6064-1111-04 117:428:00]	local.info	todo_list/main.go:22	logConfig	{"logConfig": {"level":"info","root_dir":"./storage/logs","filename":"app.log","format":"","show_line":true,"max_backups":3,"max_size":500,"max_age":28,"compress":true}}
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.504ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[12.112ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.503ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'todolist' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[1.321ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[2.546ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[32.481ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'todolist' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.505ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.506ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.538ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_mobile'
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[1.454ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 16:07:28 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.506ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+[6064-1111-04 117:430:00]	local.info	todo_list/main.go:16	log int success!
+[6064-1111-04 117:430:00]	local.info	todo_list/main.go:20	appConfig	{"appConfig": {"env":"local","port":"9988","app_name":"todo_list","app_url":"http://192.168.1.58"}}
+[6064-1111-04 117:430:00]	local.info	todo_list/main.go:21	dbConfig	{"dbConfig": {"driver":"mysql","host":"127.0.0.1","port":3306,"database":"todolist","username":"root","password":"root","charset":"utf8mb4","max_idle_conns":10,"max_open_conns":100,"log_mode":"info","enable_file_log_writer":true,"log_filename":"sql.log"}}
+[6064-1111-04 117:430:00]	local.info	todo_list/main.go:22	logConfig	{"logConfig": {"level":"info","root_dir":"./storage/logs","filename":"app.log","format":"","show_line":true,"max_backups":3,"max_size":500,"max_age":28,"compress":true}}
+
+2023/11/06 16:08:30 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.546ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 16:08:30 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.922ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 16:08:30 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'todolist' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/06 16:08:30 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 16:08:30 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.681ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 16:08:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[54.687ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/06 16:08:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[18.102ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'todolist' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/06 16:08:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 16:08:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[1.065ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 16:08:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.677ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_mobile'
+
+2023/11/06 16:08:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 16:08:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[1.054ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 16:08:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.532ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+[6064-1111-04 117:441:00]	local.info	todo_list/main.go:16	log int success!
+[6064-1111-04 117:441:00]	local.info	todo_list/main.go:20	appConfig	{"appConfig": {"env":"local","port":"9988","app_name":"todo_list","app_url":"http://192.168.1.58"}}
+[6064-1111-04 117:441:00]	local.info	todo_list/main.go:21	dbConfig	{"dbConfig": {"driver":"mysql","host":"127.0.0.1","port":3306,"database":"todolist","username":"root","password":"root","charset":"utf8mb4","max_idle_conns":10,"max_open_conns":100,"log_mode":"info","enable_file_log_writer":true,"log_filename":"sql.log"}}
+[6064-1111-04 117:441:00]	local.info	todo_list/main.go:22	logConfig	{"logConfig": {"level":"info","root_dir":"./storage/logs","filename":"app.log","format":"","show_line":true,"max_backups":3,"max_size":500,"max_age":28,"compress":true}}
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.860ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'todolist' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.504ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.670ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.509ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.504ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'todolist' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.819ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_mobile'
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.049ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 16:08:41 E:/private_basic/todo_list/bootstrap/db.go:108
+[10.191ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+[6067-1111-07 117:731:00]	local.info	todo_list/main.go:16	log int success!
+[6067-1111-07 117:731:00]	local.info	todo_list/main.go:20	appConfig	{"appConfig": {"env":"local","port":"9988","app_name":"todo_list","app_url":"http://192.168.1.58"}}
+[6067-1111-07 117:731:00]	local.info	todo_list/main.go:21	dbConfig	{"dbConfig": {"driver":"mysql","host":"127.0.0.1","port":3306,"database":"todolist","username":"root","password":"root","charset":"utf8mb4","max_idle_conns":10,"max_open_conns":100,"log_mode":"info","enable_file_log_writer":true,"log_filename":"sql.log"}}
+[6067-1111-07 117:731:00]	local.info	todo_list/main.go:22	logConfig	{"logConfig": {"level":"info","root_dir":"./storage/logs","filename":"app.log","format":"","show_line":true,"max_backups":3,"max_size":500,"max_age":28,"compress":true}}
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.505ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[21.144ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[6.516ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'todolist' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.506ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[3.529ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.818ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'todolist' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.600ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.522ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_mobile'
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[1.036ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:13:31 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+[6067-1111-07 117:758:00]	local.info	todo_list/main.go:16	log int success!
+[6067-1111-07 117:758:00]	local.info	todo_list/main.go:20	appConfig	{"appConfig": {"env":"local","port":"9988","app_name":"todo_list","app_url":"http://192.168.1.58"}}
+[6067-1111-07 117:758:00]	local.info	todo_list/main.go:21	dbConfig	{"dbConfig": {"driver":"mysql","host":"127.0.0.1","port":3306,"database":"todolist","username":"root","password":"root","charset":"utf8mb4","max_idle_conns":10,"max_open_conns":100,"log_mode":"info","enable_file_log_writer":true,"log_filename":"sql.log"}}
+[6067-1111-07 117:758:00]	local.info	todo_list/main.go:22	logConfig	{"logConfig": {"level":"info","root_dir":"./storage/logs","filename":"app.log","format":"","show_line":true,"max_backups":3,"max_size":500,"max_age":28,"compress":true}}
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[1.001ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.999ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'todolist' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[1.001ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[1.000ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[1.000ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'todolist' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_mobile'
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.982ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:17:58 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+[6067-1111-07 117:718:00]	local.info	todo_list/main.go:16	log int success!
+[6067-1111-07 117:718:00]	local.info	todo_list/main.go:20	appConfig	{"appConfig": {"env":"local","port":"9988","app_name":"todo_list","app_url":"http://192.168.1.58"}}
+[6067-1111-07 117:718:00]	local.info	todo_list/main.go:21	dbConfig	{"dbConfig": {"driver":"mysql","host":"127.0.0.1","port":3306,"database":"todolist","username":"root","password":"root","charset":"utf8mb4","max_idle_conns":10,"max_open_conns":100,"log_mode":"info","enable_file_log_writer":true,"log_filename":"sql.log"}}
+[6067-1111-07 117:718:00]	local.info	todo_list/main.go:22	logConfig	{"logConfig": {"level":"info","root_dir":"./storage/logs","filename":"app.log","format":"","show_line":true,"max_backups":3,"max_size":500,"max_age":28,"compress":true}}
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.564ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[1.617ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.516ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'todolist' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.514ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.513ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.507ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'todolist' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.742ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.246ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_mobile'
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.762ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:24:18 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.726ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+[6067-1111-07 117:755:00]	local.info	todo_list/main.go:29	断开服务器连接
+[6067-1111-07 117:712:00]	local.info	todo_list/main.go:16	log int success!
+[6067-1111-07 117:712:00]	local.info	todo_list/main.go:20	appConfig	{"appConfig": {"env":"local","port":"9988","app_name":"todo_list","app_url":"http://192.168.1.58"}}
+[6067-1111-07 117:712:00]	local.info	todo_list/main.go:21	dbConfig	{"dbConfig": {"driver":"mysql","host":"127.0.0.1","port":3306,"database":"todolist","username":"root","password":"root","charset":"utf8mb4","max_idle_conns":10,"max_open_conns":100,"log_mode":"info","enable_file_log_writer":true,"log_filename":"sql.log"}}
+[6067-1111-07 117:712:00]	local.info	todo_list/main.go:22	logConfig	{"logConfig": {"level":"info","root_dir":"./storage/logs","filename":"app.log","format":"","show_line":true,"max_backups":3,"max_size":500,"max_age":28,"compress":true}}
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.617ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'todolist' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.517ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.505ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.504ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'todolist' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.781ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_mobile'
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/06 19:25:12 E:/private_basic/todo_list/bootstrap/db.go:108
+[0.000ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_deleted_at'
+[6067-1111-07 117:757:00]	local.info	todo_list/main.go:29	断开服务器连接
