@@ -23,16 +23,10 @@ func main() {
 			db.Close()
 		}
 	}()
+	//初始化校验器
+	bootstrap.InitializeValidator()
 
+	//启动服务器
 	bootstrap.RunServer()
-	//r := gin.Default()
-	////	测试路由
-	//r.GET("/ping", func(c *gin.Context) {
-	//	c.JSON(http.StatusOK, gin.H{
-	//		"data":    "pong",
-	//		"code":    0,
-	//		"message": "请求成功",
-	//	})
-	//})
-	//r.Run(":" + global.App.Config.App.Port)
+
 }

@@ -14,12 +14,12 @@ type ID struct {
 // 创建、更新时间
 
 type Timestamps struct {
-	CreateAt time.Time `json:"create_at"`
-	UpdateAt time.Time `json:"update_at"`
+	CreateAt time.Time `json:"create_at" gorm:"column:create_at;type:datetime(0);autoUpdateTime"`
+	UpdateAt time.Time `json:"update_at" gorm:"column:update_at;type:datetime(0);autoUpdateTime"`
 }
 
 // 软删除
 
 type SoftDeletes struct {
-	DeletedAt gorm.DeletedAt `json:"deleted_at" gorm:"index"`
+	DeletedAt gorm.DeletedAt `json:"deleted_at"`
 }

@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"todo_list/app/common/request"
+	"todo_list/app/controllers/app"
 )
 
 // SetApiGroupRoutes 定义 api 分组路由
@@ -20,4 +21,5 @@ func SetApiGroupRoutes(router *gin.RouterGroup) {
 			"message": "success",
 		})
 	})
+	router.POST("/auth/register", app.Register)
 }

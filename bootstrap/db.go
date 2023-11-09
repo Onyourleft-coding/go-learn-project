@@ -31,6 +31,7 @@ func initMySqlGorm() *gorm.DB {
 	dbConfig := global.App.Config.Database
 
 	if dbConfig.Database == "" {
+		global.App.Log.Warn("缺少数据库配置")
 		return nil
 	}
 	dsn := dbConfig.UserName + ":" + dbConfig.Password + "@tcp(" + dbConfig.Host + ":" + strconv.Itoa(dbConfig.Port) + ")/" +
@@ -48,11 +49,13 @@ func initMySqlGorm() *gorm.DB {
 		Logger:                                   getGormLogger(), // 使用自定义 Logger
 	}); err != nil {
 		fmt.Println("数据库连接失败")
+		global.App.Log.Info("数据库连接失败")
 
 		global.App.Log.Error("mysql connect failed, err:", zap.Any("err", err))
 		return nil
 	} else {
 		fmt.Println("数据库连接成功", db)
+		global.App.Log.Info("数据库连接成功")
 		sqlDB, _ := db.DB()
 		sqlDB.SetMaxIdleConns(dbConfig.MaxIdleConns)
 		sqlDB.SetMaxOpenConns(dbConfig.MaxOpenConns)
