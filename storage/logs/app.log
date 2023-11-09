@@ -1204,3 +1204,44 @@
 
 2023/11/09 17:38:12 E:/private_basic/todo_list/app/services/user.go:28 Error 1292 (22007): Incorrect date value: '0000-00-00' for column 'create_at' at row 1
 [1.318ms] [rows:0] INSERT INTO `users` (`name`,`mobile`,`password`,`create_at`,`update_at`,`deleted_at`) VALUES ('林钟炎','15915173646','$2a$04$0wjUAN1p4R3OckG4wodCKe9u1i0jd1HbFmuSgvYy8GftC3nyGKiVy','0000-00-00 00:00:00','0000-00-00 00:00:00',NULL)
+[9096-1111-06 117:65:00]	local.info	todo_list/main.go:15	log int success!
+[9096-1111-06 117:65:00]	local.info	bootstrap/db.go:58	数据库连接成功
+
+2023/11/09 18:11:05 E:/private_basic/todo_list/bootstrap/db.go:112
+[0.535ms] [rows:-] SELECT DATABASE()
+
+2023/11/09 18:11:05 E:/private_basic/todo_list/bootstrap/db.go:112
+[1.536ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/09 18:11:05 E:/private_basic/todo_list/bootstrap/db.go:112
+[0.517ms] [rows:-] SELECT count(*) FROM information_schema.tables WHERE table_schema = 'todolist' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2023/11/09 18:11:05 E:/private_basic/todo_list/bootstrap/db.go:112
+[0.000ms] [rows:-] SELECT DATABASE()
+
+2023/11/09 18:11:05 E:/private_basic/todo_list/bootstrap/db.go:112
+[1.023ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/09 18:11:05 E:/private_basic/todo_list/bootstrap/db.go:112
+[0.519ms] [rows:-] SELECT * FROM `users` LIMIT 1
+
+2023/11/09 18:11:05 E:/private_basic/todo_list/bootstrap/db.go:112
+[0.556ms] [rows:-] SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'todolist' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2023/11/09 18:11:05 E:/private_basic/todo_list/bootstrap/db.go:112
+[0.516ms] [rows:-] SELECT DATABASE()
+
+2023/11/09 18:11:05 E:/private_basic/todo_list/bootstrap/db.go:112
+[0.664ms] [rows:1] SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'todolist%' ORDER BY SCHEMA_NAME='todolist' DESC,SCHEMA_NAME limit 1
+
+2023/11/09 18:11:05 E:/private_basic/todo_list/bootstrap/db.go:112
+[11.521ms] [rows:-] SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'todolist' AND table_name = 'users' AND index_name = 'idx_users_mobile'
+
+2023/11/09 18:11:17 E:/private_basic/todo_list/app/services/user.go:21 record not found
+[1.188ms] [rows:0] SELECT `id` FROM `users` WHERE mobile = '15915173646' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
+
+2023/11/09 18:11:17 E:/private_basic/todo_list/app/services/user.go:28
+[4.895ms] [rows:1] INSERT INTO `users` (`name`,`mobile`,`password`,`create_at`,`update_at`,`deleted_at`) VALUES ('林钟炎','15915173646','$2a$04$OfqeHPE7OUJAzoSf2TDrxem0XejR.vkUsFXMH0hkB4i3bN57wlg3C','2023-11-09 18:11:17.967','2023-11-09 18:11:17.967',NULL)
+
+2023/11/09 18:14:36 E:/private_basic/todo_list/app/services/user.go:21
+[16.649ms] [rows:1] SELECT `id` FROM `users` WHERE mobile = '15915173646' AND `users`.`deleted_at` IS NULL ORDER BY `users`.`id` LIMIT 1
