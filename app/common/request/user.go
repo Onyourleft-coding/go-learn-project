@@ -20,3 +20,16 @@ func (register Register) GetMessages() ValidatorMessages {
 		"password.required": "用户密码不能为空",
 	}
 }
+
+type Login struct {
+	Mobile   string `json:"mobile" form:"mobile" binding:"required,mobile"`
+	Password string `json:"password" form:"password" binding:"required"`
+}
+
+func (login Login) GetMessages() ValidatorMessages {
+	return ValidatorMessages{
+		"mobile.required":   "手机号码不能为空",
+		"mobile.mobile":     "手机号码格式不正确",
+		"password.required": "密码不能为空",
+	}
+}

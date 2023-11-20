@@ -1,22 +1,23 @@
 package services
 
-import "github.com/dgrijalva/jwt-go"
-
-//办法token逻辑
+import (
+	"github.com/dgrijalva/jwt-go"
+	"time"
+	"todo_list/global"
+)
 
 type jwtService struct {
 }
 
 var JwtService = new(jwtService)
 
-//所有需要颁发token的用户模型必须实现这个接口
+// 所有需要颁发 token 的用户模型必须实现这个接口
 
-type jwtUser interface {
+type JwtUser interface {
 	GetUid() string
 }
 
-//CustomClaims 自定义 Claims
-
+// CustomClaims 自定义 Claims
 type CustomClaims struct {
 	jwt.StandardClaims
 }
@@ -32,8 +33,26 @@ type TokenOutPut struct {
 	TokenType   string `json:"token_type"`
 }
 
-//CreateToken 生成Token
+// CreateToken 生成 Token
+func (jwtService *jwtService) CreateToken(GuardName string, user JwtUser) (tokenData TokenOutPut, err error, token *jwt.Token) {
+	token = jwt.NewWithClaims(
+		jwt.SigningMethodHS256,
+		CustomClaims{
+			StandardClaims: jwt.StandardClaims{
+				ExpiresAt: time.Now().Unix() + global.App.Config.Jwt.JwtTtl,
+				Id:        user.GetUid(),
+				Issuer:    GuardName, // 用于在中间件中区分不同客户端颁发的 token，避免 token 跨端使用
+				NotBefore: time.Now().Unix() - 1000,
+			},
+		},
+	)
 
-func (jwtService *jwtService) CreateToken(GuardName string, user jwtUser) (tokenData TokenOutPut, err error) {
+	tokenStr, err := token.SignedString([]byte(global.App.Config.Jwt.Secret))
 
+	tokenData = TokenOutPut{
+		tokenStr,
+		int(global.App.Config.Jwt.JwtTtl),
+		TokenType,
+	}
+	return
 }
