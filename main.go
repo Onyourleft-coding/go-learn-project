@@ -14,6 +14,9 @@ func main() {
 	global.App.Log = bootstrap.InitializeLog()
 	global.App.Log.Info("log int success!")
 
+	//初始化Redis
+	global.App.Redis = bootstrap.InitializeRedis()
+
 	//初始化数据库
 	global.App.DB = bootstrap.InitializeDB()
 	//程序关闭前，释放数据库连接

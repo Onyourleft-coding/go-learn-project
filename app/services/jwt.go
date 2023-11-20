@@ -1,9 +1,13 @@
 package services
 
 import (
+	"context"
+	"fmt"
 	"github.com/dgrijalva/jwt-go"
+	"strconv"
 	"time"
 	"todo_list/global"
+	"todo_list/utils"
 )
 
 type jwtService struct {
@@ -55,4 +59,38 @@ func (jwtService *jwtService) CreateToken(GuardName string, user JwtUser) (token
 		TokenType,
 	}
 	return
+}
+
+//获取黑名单缓存 key
+
+func (jwtService *jwtService) getBlackListKey(tokenStr string) string {
+	return "jwt_black_list:" + utils.MD5([]byte(tokenStr))
+}
+
+// JoinBlackList token 加入黑名单
+func (jwtService *jwtService) JoinBlackList(token *jwt.Token) (err error) {
+
+	nowUnix := time.Now().Unix()
+	timer := time.Duration(token.Claims.(*CustomClaims).ExpiresAt-nowUnix) * time.Second
+
+	//	将token剩余时间设置为缓存有效期，并将当前时间作为缓存value值
+	err = global.App.Redis.SetNX(context.Background(), jwtService.getBlackListKey(token.Raw), nowUnix, timer)
+	return
+}
+
+// IsInBlacklist token是否在黑名单中
+func (jwtService *jwtService) IsInBlacklist(tokenStr string) bool {
+	joinUnixStr, err := global.App.Redis.Get(context.Background(), jwtService.getBlackListKey(tokenStr)).Result()
+	joinUnix, err := strconv.ParseInt(joinUnixStr, 10, 64)
+	fmt.Println("joinUnixStr:", joinUnixStr, "joinUnix:", joinUnix)
+	if joinUnix == 0 || err != nil {
+		return false
+	}
+
+	//	JwtBlacklistGracePeriod 为黑名单宽限时间，避免并发请求失效
+	if time.Now().Unix()-joinUnix < global.App.Config.Jwt.JwtBlacklistGracePeriod {
+		return false
+	}
+	return true
+
 }
